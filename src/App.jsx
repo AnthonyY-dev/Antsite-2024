@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import reactLogo from "./assets/react.svg";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import LoggedIn from "./pages/LoggedIn";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
-import { Icon, useColorModeValue } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import DarkModeToggle from "./components/DarkToggle";
-
+import { useLocation } from "react-router-dom";
+import { useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import MiniDrawer from "./components/MiniDrawer";
 let navbarItems = [
   {
     text: "Home",
@@ -102,15 +103,23 @@ let navbarItems = [
 ];
 
 function App() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
   return (
-    <div className="parent">
+    <div className="parent" mode={useColorModeValue("light", "dark")}>
       <BrowserRouter>
         <Sidebar items={navbarItems}></Sidebar>
         <div style={{ flexDirection: "column", width: "100%", height: "100%" }}>
-          <Navbar></Navbar>
+          <Navbar onOpen={onOpen}></Navbar>
+          <MiniDrawer
+            isOpen={isOpen}
+            onClose={onClose}
+            btnRef={btnRef}
+            pages={navbarItems}
+          />
           <DarkModeToggle></DarkModeToggle>
           <Routes>
-            <Route index path="/" element={<Home />}></Route>
+            <Route index path="/" element={<LoggedIn />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

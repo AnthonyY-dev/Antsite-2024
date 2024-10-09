@@ -4,6 +4,7 @@
   --white: rgba(255, 255, 255, 0.87);
   --btnhover: #5b5b5b;
   --btnactive: #8a8a8a;
+  --accent: #c37d26;
   color: var(--white);
   background-color: #242424;
 }
@@ -33,9 +34,18 @@ body {
 .navbar {
   display: none;
   width: 100%;
+  height: 7.5vh;
+  background-color: #111010;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  flex-direction: row;
+}
+.navbar[mode="light"] {
+  background-color: #ffffff;
+  border-bottom: solid 2px var(--accent);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .sidebar {
     display: none;
   }
@@ -48,12 +58,16 @@ body {
   display: flex;
   flex-direction: row;
 }
+.parent[mode="light"] {
+  background-color: #f7f7f7;
+}
 .items {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-height: 85vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .sb-l {
@@ -107,4 +121,20 @@ body {
 .searchResText {
   margin-top: 4px;
   margin-left: 27.5%;
+}
+
+.manhr {
+  background-color: var(--accent);
+  width: 100%;
+  height: 2px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.navBanner {
+  max-height: 5vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
