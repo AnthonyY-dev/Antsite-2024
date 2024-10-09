@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import { Icon } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
+import DarkModeToggle from "./components/DarkToggle";
 
 let navbarItems = [
   {
@@ -107,6 +108,7 @@ function App() {
         <Sidebar items={navbarItems}></Sidebar>
         <div style={{ flexDirection: "column", width: "100%", height: "100%" }}>
           <Navbar></Navbar>
+          <DarkModeToggle></DarkModeToggle>
           <Routes>
             <Route index path="/" element={<Home />}></Route>
           </Routes>
