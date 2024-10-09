@@ -2,8 +2,10 @@ import React from "react";
 import DrawerExample from "../components/MiniDrawer";
 import { useDisclosure, useColorModeValue } from "@chakra-ui/react";
 
-const LoggedIn = () => {
+// secrets
+const testKey = import.meta.env.VITE_TEST;
 
+const LoggedIn = () => {
   return (
     <div style={{ height: "100vh" }}>
       <h1
@@ -16,7 +18,7 @@ const LoggedIn = () => {
         Nothing here yet, come back later :)
       </h1>
       <p>Home</p>
-      
+      TEST: {testKey}
     </div>
   );
 };
