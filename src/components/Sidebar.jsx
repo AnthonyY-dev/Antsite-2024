@@ -8,11 +8,11 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { render } from "react-dom";
 import search from "../hooks/search";
+import DarkModeToggle from "./DarkToggle";
+import renderNavigation from "../hooks/renderNavigation";
 
-
-const Sidebar = ({ items }) => {
+const Sidebar = ({ items, noRender }) => {
   const [renderedItems, setRenderedItems] = useState(items);
 
   const [searchResultCount, setSRC] = useState(0);
@@ -24,6 +24,11 @@ const Sidebar = ({ items }) => {
     setRenderedItems(closestMatches);
     setSRC(closestMatches.length);
   }, [searchText, items]);
+
+  if (!renderNavigation(noRender)) {
+    return "";
+  }
+
   return (
     <div
       className="sidebar"
@@ -31,10 +36,10 @@ const Sidebar = ({ items }) => {
       mode={useColorModeValue("light", "dark")}
     >
       <div className="sbTop">
-        <img
-          src={useColorModeValue("./bannerLight.png", "./banner.png")}
-          className="banner"
-        ></img>
+        <div className="darkModeToggleNav" style={{ marginTop: 10 }}>
+          <DarkModeToggle></DarkModeToggle>
+        </div>
+        <img src={"bannerRimlessnobg.png"} className="banner"></img>
         <div className="searchParent">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
@@ -49,6 +54,9 @@ const Sidebar = ({ items }) => {
               placeholder="Search"
             />
           </InputGroup>
+          <p style={{ marginTop: 10, fontSize: 20, fontWeight: 700 }}>
+            Navigation
+          </p>
           {searchText != "" ? (
             <p className="searchResText" id="searchResults">
               {searchText == "" ? items.length : searchResultCount} Search
@@ -63,7 +71,7 @@ const Sidebar = ({ items }) => {
         </div>
       </div>
 
-      <hr style={{ marginTop: 20 }} />
+      <div className="manhr"></div>
       <div className="items">
         {(searchText == "" ? items : renderedItems).map((page) => {
           return (

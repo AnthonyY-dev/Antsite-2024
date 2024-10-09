@@ -12,9 +12,12 @@ import {
   useColorModeValue,
   InputGroup,
   InputLeftElement,
+  Icon,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import search from "../hooks/search";
+import DarkModeToggle from "./DarkToggle";
+import { Link } from "react-router-dom";
 
 function MiniDrawer({ isOpen, onClose, btnRef, pages }) {
   const [searchText, setSearchText] = useState("");
@@ -30,7 +33,7 @@ function MiniDrawer({ isOpen, onClose, btnRef, pages }) {
   return (
     <Drawer
       isOpen={isOpen}
-      placement="right"
+      placement="left"
       onClose={onClose}
       finalFocusRef={btnRef}
       size="md"
@@ -53,6 +56,9 @@ function MiniDrawer({ isOpen, onClose, btnRef, pages }) {
             alt="Banner"
           />
           Navigation
+          <div className="darkModeToggleNav">
+            <DarkModeToggle className="darkModeToggleNav"></DarkModeToggle>
+          </div>
         </DrawerHeader>
         <DrawerBody>
           <InputGroup>
@@ -67,12 +73,36 @@ function MiniDrawer({ isOpen, onClose, btnRef, pages }) {
             />
           </InputGroup>
           <div className="manhr"></div>
+          <div className="items">
+            {(searchText == "" ? pages : renderedItems).map((page) => {
+              return (
+                <Link
+                  to={page.path}
+                  className="sb-l"
+                  mode={useColorModeValue("light", "dark")}
+                  key={page.path}
+                  onClick={onClose}
+                >
+                  <Icon
+                    as={page.icon}
+                    style={{
+                      width: 25,
+                      height: 25,
+                      color: useColorModeValue("#242424", "white"),
+                    }}
+                  ></Icon>
+                  <p style={{ color: useColorModeValue("#242424", "white") }}>
+                    {page.text}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
         </DrawerBody>
         <DrawerFooter>
           <Button variant="outline" mr={3} onClick={onClose}>
-            Cancel
+            Close
           </Button>
-          <Button colorScheme="orange">Save</Button>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
