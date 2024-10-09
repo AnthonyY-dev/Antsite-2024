@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
-import { Icon } from "@chakra-ui/react";
+import { Icon, useColorModeValue } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import DarkModeToggle from "./components/DarkToggle";
 
@@ -12,92 +12,92 @@ let navbarItems = [
   {
     text: "Home",
     path: "/",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Dashboard",
     path: "/dashboard",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Profile",
     path: "/profile",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Messages",
     path: "/messages",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Settings",
     path: "/settings",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Notifications",
     path: "/notifications",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Help Center",
     path: "/help",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "About Us",
     path: "/about",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Contact Us",
     path: "/contact",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Products",
     path: "/products",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Services",
     path: "/services",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Reports",
     path: "/reports",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Calendar",
     path: "/calendar",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Gallery",
     path: "/gallery",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "FAQ",
     path: "/faq",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Blog",
     path: "/blog",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Careers",
     path: "/careers",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
   {
     text: "Log Out",
     path: "/logout",
-    icon: <Icon as={FaHome} style={{ height: 25, width: 25 }}></Icon>,
+    icon: FaHome,
   },
 ];
 

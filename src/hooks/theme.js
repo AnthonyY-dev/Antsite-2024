@@ -5,7 +5,7 @@ const customTheme = extendTheme({
   config: {
     initialColorMode: "dark",
     useSystemColorMode: false,
-  },
+  },    
 });
 
 export default customTheme;

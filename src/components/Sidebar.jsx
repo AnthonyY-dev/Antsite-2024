@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import {
+  Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { render } from "react-dom";
 
@@ -84,9 +90,16 @@ const Sidebar = ({ items }) => {
 
   console.log(renderedItems);
   return (
-    <div className="sidebar">
+    <div
+      className="sidebar"
+      style={{ backgroundColor: useColorModeValue("#FFFFFF", "#111010") }}
+      mode={useColorModeValue("light", "dark")}
+    >
       <div className="sbTop">
-        <img src="/banner.png" className="banner"></img>
+        <img
+          src={useColorModeValue("./bannerLight.png", "./banner.png")}
+          className="banner"
+        ></img>
         <div className="searchParent">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
@@ -119,9 +132,23 @@ const Sidebar = ({ items }) => {
       <div className="items">
         {(searchText == "" ? items : renderedItems).map((page) => {
           return (
-            <Link to={page.path} className="sb-l" key={page.path}>
-              {page.icon}
-              <p>{page.text}</p>
+            <Link
+              to={page.path}
+              className="sb-l"
+              mode={useColorModeValue("light", "dark")}
+              key={page.path}
+            >
+              <Icon
+                as={page.icon}
+                style={{
+                  width: 25,
+                  height: 25,
+                  color: useColorModeValue("#242424", "white"),
+                }}
+              ></Icon>
+              <p style={{ color: useColorModeValue("#242424", "white") }}>
+                {page.text}
+              </p>
             </Link>
           );
         })}

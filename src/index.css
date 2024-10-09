@@ -27,6 +27,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.sidebar[mode="light"] {
+  border: none;
+}
 .navbar {
   display: none;
   width: 100%;
@@ -72,6 +75,13 @@ body {
 
 .sb-l:active {
   background-color: var(--btnactive);
+}
+
+.sb-l:hover[mode="light"] {
+  background-color: rgb(218, 218, 218);
+}
+.sb-l:active[mode="light"] {
+  background-color: rgb(176, 176, 176);
 }
 
 .sb-l > p {
