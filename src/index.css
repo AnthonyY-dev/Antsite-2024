@@ -225,7 +225,7 @@ body {
 }
 .sl {
   width: 500px;
-  min-height: 60%;
+  min-height: 40%;
 }
 
 .card[mode="light"] {

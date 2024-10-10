@@ -20,10 +20,10 @@ const LoginForm = ({ plat }) => {
 
   return (
     <div>
-      <h1 style={{ fontSize: 25 }}>Login</h1>
+      <h1 style={{ fontSize: 25, marginLeft: 120 }}>Login</h1>
       <div className="manhr"></div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           <InputGroup>
             <InputLeftElement pointerEvents="none">
@@ -31,8 +31,9 @@ const LoginForm = ({ plat }) => {
             </InputLeftElement>
             <Input
               style={{ width: 300 }}
-              placeholder="Username"
+              placeholder="Email "
               type="text"
+              {...register("email")}
             ></Input>
           </InputGroup>
           <InputGroup>
@@ -42,10 +43,21 @@ const LoginForm = ({ plat }) => {
             <Input
               style={{ width: 300 }}
               placeholder="Password"
-              type="text"
+              type="password"
+              {...register("password")}
             ></Input>
           </InputGroup>
-          <Button style={{ width: 300 }}>Login</Button>
+          <Button
+            style={{ width: 300 }}
+            variant={"outline"}
+            colorScheme="orange"
+            type="submit"
+          >
+            Login
+          </Button>
+
+          <div className="manhr"></div>
+          <Button>Forgot Password</Button>
         </div>
       </form>
     </div>
