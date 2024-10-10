@@ -36,9 +36,6 @@ const Sidebar = ({ items, noRender }) => {
       mode={useColorModeValue("light", "dark")}
     >
       <div className="sbTop">
-        <div className="darkModeToggleNav" style={{ marginTop: 10 }}>
-          <DarkModeToggle></DarkModeToggle>
-        </div>
         <img src={"bannerRimlessnobg.png"} className="banner"></img>
         <div className="searchParent">
           <InputGroup>

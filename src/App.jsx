@@ -1,108 +1,72 @@
-import React, { useRef } from "react";
-import reactLogo from "./assets/react.svg";
+//libraries
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LoggedIn from "./pages/LoggedIn";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import { FaHome } from "react-icons/fa";
-import DarkModeToggle from "./components/DarkToggle";
 import { useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import Dashboard from "./pages/Dashboard";
+import Sidebar from "./components/Sidebar";
+
+//local imports
+import Navbar from "./components/Navbar";
 import MiniDrawer from "./components/MiniDrawer";
+import Landing from "./pages/Landing";
+
+//icons
+import { FaHome, FaBell } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { IoMdPerson, IoMdMail, IoIosHelpCircle } from "react-icons/io";
+import { MdMessage } from "react-icons/md";
+import { FaGear } from "react-icons/fa6";
+import { IoLogOut } from "react-icons/io5";
 
 let navbarItems = [
   {
-    text: "Home",
-    path: "/",
-    icon: FaHome,
-  },
-  {
     text: "Dashboard",
     path: "/dashboard",
-    icon: FaHome,
+    icon: MdDashboard,
   },
   {
     text: "Profile",
     path: "/profile",
-    icon: FaHome,
+    icon: IoMdPerson,
   },
   {
     text: "Messages",
     path: "/messages",
-    icon: FaHome,
+    icon: MdMessage,
   },
   {
     text: "Settings",
     path: "/settings",
-    icon: FaHome,
+    icon: FaGear,
   },
   {
     text: "Notifications",
     path: "/notifications",
-    icon: FaHome,
+    icon: FaBell,
   },
   {
     text: "Help Center",
     path: "/help",
-    icon: FaHome,
-  },
-  {
-    text: "About Us",
-    path: "/about",
-    icon: FaHome,
+    icon: IoIosHelpCircle,
   },
   {
     text: "Contact Us",
     path: "/contact",
-    icon: FaHome,
+    icon: IoMdMail,
   },
   {
-    text: "Products",
-    path: "/products",
-    icon: FaHome,
-  },
-  {
-    text: "Services",
-    path: "/services",
-    icon: FaHome,
-  },
-  {
-    text: "Reports",
-    path: "/reports",
-    icon: FaHome,
-  },
-  {
-    text: "Calendar",
-    path: "/calendar",
-    icon: FaHome,
-  },
-  {
-    text: "Gallery",
-    path: "/gallery",
-    icon: FaHome,
-  },
-  {
-    text: "FAQ",
-    path: "/faq",
-    icon: FaHome,
-  },
-  {
-    text: "Blog",
-    path: "/blog",
-    icon: FaHome,
-  },
-  {
-    text: "Careers",
-    path: "/careers",
+    text: "Landing",
+    path: "/",
     icon: FaHome,
   },
   {
     text: "Log Out",
     path: "/logout",
-    icon: FaHome,
+    icon: IoLogOut,
   },
 ];
 
-let renderBl = ["/home"];
+let renderBl = ["/"];
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -122,10 +86,9 @@ function App() {
             btnRef={btnRef}
             pages={navbarItems}
           />
-          <DarkModeToggle></DarkModeToggle>
           <Routes>
-            <Route index path="/" element={<LoggedIn />}></Route>
-            <Route path="/home" element={<p>Home page</p>} />
+            <Route index path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/" element={<Landing />} />
           </Routes>
         </div>
       </BrowserRouter>

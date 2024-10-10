@@ -5,7 +5,7 @@ import { useDisclosure, useColorModeValue } from "@chakra-ui/react";
 // secrets
 const testKey = import.meta.env.VITE_TEST;
 
-const LoggedIn = () => {
+const Dashboard = () => {
   return (
     <div style={{ height: "100vh" }}>
       <h1
@@ -23,4 +23,4 @@ const LoggedIn = () => {
   );
 };
 
-export default LoggedIn;
+export default Dashboard;
