@@ -1,7 +1,11 @@
 //libraries
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import {
+  useColorModeValue,
+  useDisclosure,
+  useStatStyles,
+} from "@chakra-ui/react";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 
@@ -73,8 +77,19 @@ let renderBl = ["/", "/login", "/register"];
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const [tooSmall, isTooSmall] = useState(false);
 
-  return (
+  const checkScreenSize = () => {
+    if (window.innerHeight < 350 || window.innerWidth < 300) {
+      isTooSmall(true);
+    } else {
+      isTooSmall(false);
+    }
+  };
+
+  window.addEventListener("resize", checkScreenSize, true);
+
+  const page = (
     <div className="parent" mode={useColorModeValue("light", "dark")}>
       <BrowserRouter style={{ height: "100vh" }}>
         <Sidebar items={navbarItems} noRender={renderBl}></Sidebar>
@@ -99,6 +114,16 @@ function App() {
         </div>
       </BrowserRouter>
     </div>
+  );
+
+  return tooSmall ? (
+    <div className="tooSmall">
+      <h1 style={{ fontSize: "250%", color: "#ff5959", fontWeight: 800 }}>
+        Your screen is too small!
+      </h1>
+    </div>
+  ) : (
+    page
   );
 }
 
