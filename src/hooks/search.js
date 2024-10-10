@@ -66,8 +66,6 @@ function levenshteinDistance(a = "", b = "") {
       })
       .map((item) => item);
   }
-  console.log(array)
-  console.log(typeof array)
   return getClosestMatches(input, array, property, threshold)
 }
 

@@ -49,6 +49,7 @@ const Sidebar = ({ items, noRender }) => {
               className="search"
               type="text"
               placeholder="Search"
+              focusBorderColor="#c37d26"
             />
           </InputGroup>
           <p style={{ marginTop: 10, fontSize: 20, fontWeight: 700 }}>

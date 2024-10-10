@@ -6,6 +6,9 @@
   --btnhover: #5b5b5b;
   --btnactive: #8a8a8a;
   --accent: #c37d26;
+
+  --bgLightHint: #f7f7f7;
+  --bgDark: #111010;
   color: var(--white);
   background-color: #242424;
 }
@@ -26,13 +29,13 @@ body {
   flex-direction: row;
 }
 .parent[mode="light"] {
-  background-color: #f7f7f7;
+  background-color: var(--bgLightHint);
 }
 
 /* SIDEBAR */
 
 .sidebar {
-  background-color: #111010;
+  background-color: var(--bgDark);
 
   width: 15%;
   height: 100vh;
@@ -48,7 +51,7 @@ body {
   display: none;
   width: 100%;
   height: 7.5vh;
-  background-color: #111010;
+  background-color: var(--bgDark);
   align-items: center;
   /* justify-content: space-evenly; */
   flex-direction: row;
@@ -77,9 +80,7 @@ body {
 }
 
 .sb-l {
-  color: rgba(255, 255, 255, 0.87);
   text-decoration: none;
-  /* background-color: red; */
   width: 90%;
   border-radius: 15px;
   display: flex;
@@ -170,7 +171,7 @@ body {
 }
 
 .landNavbar[mode="dark"] {
-  background-color: #111010;
+  background-color: var(--bgDark);
 }
 
 .landNavbar[mode="light"] {
@@ -180,7 +181,6 @@ body {
 
 .bannerLandnav {
   max-height: 75%;
-  
 }
 
 .landNavbarBtns {
@@ -199,4 +199,44 @@ body {
   .landNavbarBtns {
     display: none;
   }
+}
+
+.loginParent {
+  width: 100%;
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .loginParent {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-height: 1000px) {
+}
+
+.card {
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sl {
+  width: 600px;
+  min-height: 60%;
+}
+
+.card[mode="light"] {
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+}
+
+.card[mode="dark"] {
+  background-color: var(--bgDark);
 }

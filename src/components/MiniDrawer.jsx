@@ -70,6 +70,7 @@ function MiniDrawer({ isOpen, onClose, btnRef, pages }) {
               className="search"
               type="text"
               placeholder="Search"
+              focusBorderColor="#c37d26"
             />
           </InputGroup>
           <div className="manhr"></div>

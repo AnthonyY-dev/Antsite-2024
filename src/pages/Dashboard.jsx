@@ -1,9 +1,5 @@
 import React from "react";
-import DrawerExample from "../components/MiniDrawer";
-import { useDisclosure, useColorModeValue } from "@chakra-ui/react";
-
-// secrets
-const testKey = import.meta.env.VITE_TEST;
+import { useColorModeValue } from "@chakra-ui/react";
 
 const Dashboard = () => {
   return (
@@ -18,8 +14,7 @@ const Dashboard = () => {
         Nothing here yet, come back later :)
       </h1>
       <p>Home</p>
-      TEST: {testKey}
-    </div> 
+    </div>
   );
 };
 
