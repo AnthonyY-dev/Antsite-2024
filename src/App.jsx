@@ -17,6 +17,8 @@ import { IoMdPerson, IoMdMail, IoIosHelpCircle } from "react-icons/io";
 import { MdMessage } from "react-icons/md";
 import { FaGear } from "react-icons/fa6";
 import { IoLogOut } from "react-icons/io5";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 let navbarItems = [
   {
@@ -66,7 +68,7 @@ let navbarItems = [
   },
 ];
 
-let renderBl = ["/"];
+let renderBl = ["/", "/login", "/register"];
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -87,8 +89,12 @@ function App() {
             pages={navbarItems}
           />
           <Routes>
-            <Route index path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/" element={<Landing />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
+            <Route index path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </BrowserRouter>

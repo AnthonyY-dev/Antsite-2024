@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap");
 
+/* ROOT */
 :root {
   --white: rgba(255, 255, 255, 0.87);
   --btnhover: #5b5b5b;
@@ -19,6 +20,17 @@ body {
   font-family: "Poppins", "Arial";
   font-weight: 400;
 }
+
+.parent {
+  display: flex;
+  flex-direction: row;
+}
+.parent[mode="light"] {
+  background-color: #f7f7f7;
+}
+
+/* SIDEBAR */
+
 .sidebar {
   background-color: #111010;
 
@@ -55,13 +67,6 @@ body {
   }
 }
 
-.parent {
-  display: flex;
-  flex-direction: row;
-}
-.parent[mode="light"] {
-  background-color: #f7f7f7;
-}
 .items {
   display: flex;
   flex-direction: column;
@@ -154,4 +159,44 @@ body {
 .dmnav2 {
   display: flex;
   flex-direction: row;
+}
+
+/* LANDING */
+.landNavbar {
+  height: 7.5vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.landNavbar[mode="dark"] {
+  background-color: #111010;
+}
+
+.landNavbar[mode="light"] {
+  background-color: #ffffff;
+  border-bottom: solid 2px var(--accent);
+}
+
+.bannerLandnav {
+  max-height: 75%;
+  
+}
+
+.landNavbarBtns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.landNavbarBtnsM {
+  display: none;
+}
+@media only screen and (max-width: 500px) {
+  .landNavbarBtnsM {
+    display: flex;
+  }
+  .landNavbarBtns {
+    display: none;
+  }
 }
