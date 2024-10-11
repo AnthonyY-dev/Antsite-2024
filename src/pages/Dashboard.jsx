@@ -1,5 +1,7 @@
 import React from "react";
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue, Button } from "@chakra-ui/react";
+import { auth } from "../hooks/firebase";
+import { signOut } from "firebase/auth";
 
 const Dashboard = () => {
   return (
@@ -12,6 +14,11 @@ const Dashboard = () => {
         }}
       >
         Nothing here yet, come back later :)
+        <Button
+          onClick={() => {
+            signOut(auth);
+          }}
+        ></Button>
       </h1>
       <p>Home</p>
     </div>

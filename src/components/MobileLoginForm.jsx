@@ -29,13 +29,13 @@ const MobileLoginForm = ({ isOpen, onClose }) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            // padding: 10,
+            height: 338,
           }}
         >
           <ModalBody>
             <LoginForm plat="mobile"></LoginForm>
           </ModalBody>
-
-          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>

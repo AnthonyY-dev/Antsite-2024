@@ -23,6 +23,21 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const auth = getAuth(app)
-export const db = firebase.Firestore
 
-//Custom Functions
+//Map
+export const mapErrorCode = (code) => {
+  switch (code){
+    case "auth/email-already-exists":
+      return "This email is already in use."
+    case "auth/internal-error":
+      return "An internal error has occured."
+    case "auth/invalid-email":
+      return "Your email is invalid."
+    case "auth/invalid-password":
+      return "Your password is invalid."
+    case "auth/invalid-credential":
+      return "The email or password is invalid."
+    default:
+      return "Another error occured: "+code
+  }
+}
